@@ -36,6 +36,7 @@ sns.boxplot(data=df2['height'])
 plt.show()
 ```
 <img width="534" height="413" alt="image" src="https://github.com/user-attachments/assets/bea8ca41-d924-4e17-957a-24777a36134e" />
+
 ```
 q1=df2['height'].quantile(0.25)
 q2=df2['height'].quantile(0.5)
@@ -50,24 +51,31 @@ l=df2['height'].tolist()
 outl=[x for x in l if x<lb or x>up]
 print("Outliers:",outl)
 ```
+
 <img width="250" height="102" alt="image" src="https://github.com/user-attachments/assets/363428a4-2f52-4489-9d69-6e67c9e1891f" />
+
 ```
 df2=df2[(df2['height']>lb)&(df2['height']<up)]
 sns.boxplot(data=df2['height'])
 plt.show()
 ```
+
 <img width="547" height="413" alt="image" src="https://github.com/user-attachments/assets/98c9aced-2cfa-4bba-a47c-c83dad249d25" />
+
 ```
 df2_z=pd.DataFrame(l,columns=['height'])
 z_score=np.abs(stats.zscore(df2_z))
 z_score
 ```
+
 <img width="160" height="467" alt="image" src="https://github.com/user-attachments/assets/38e39f3e-bc72-4c78-b7cd-74cc736f324a" />
+
 ```
 outl_z= df2_z[z_score>threshold]
 cleaned_data=df2_z[z_score<=threshold]
 print(cleaned_data)
 ```
+
 <img width="120" height="436" alt="image" src="https://github.com/user-attachments/assets/fbe4598c-5d46-472c-b2da-71e1df659542" />
 
 # Result
